@@ -1,6 +1,9 @@
 //Biblioteca necessária para usar operações de saída no C++
 #include <iostream>
-#include<stdio.h>
+//Biblioteca para utilizar algumas funções da linguagem C
+#include <cstdlib>
+//Biblioteca time
+#include <ctime>
 //Dizendo ao programa que estamos utilizando as funções padrões
 using namespace std;
 
@@ -34,12 +37,11 @@ int main (){
     {
         tries_player = 5;
     }
-    
-    
 
     //Armazenando o número secreto e declarando que ela é uma constante
     //Variaveis constantes seguem uma regra de nomenclatura onde todos os caracteres são em CAPS Lock
-    const int SECRET_NUMBER = 42;
+    srand(time(NULL));
+    const int SECRET_NUMBER = rand() % 100;
 
     bool wrong_answer = true;
     //Variável de tentativas
