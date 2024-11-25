@@ -11,6 +11,32 @@ int main (){
     cout << "* Bem-Vindos ao jogo da adivinhacao! *" << endl;
     cout << "**************************************" << endl;
 
+    //Pedindo para o player escolher a dificuldade
+    cout << "Escolha a dificuldade: " << endl;
+    cout << "Facil (F) | Medio (M) | Dificil (D)" << endl;
+
+    //Variável de dificuldade
+    char difficulty;
+    cin >> difficulty;
+
+    //numero de tentativas
+    int tries_player;
+
+    if (difficulty == 'F')
+    {
+        tries_player = 15;
+    }
+    else if (difficulty == 'M')
+    {
+        tries_player = 10;
+    }
+    else
+    {
+        tries_player = 5;
+    }
+    
+    
+
     //Armazenando o número secreto e declarando que ela é uma constante
     //Variaveis constantes seguem uma regra de nomenclatura onde todos os caracteres são em CAPS Lock
     const int SECRET_NUMBER = 42;
@@ -23,10 +49,8 @@ int main (){
     double score = 1000.0;
 
     //Laço de repetição para permitir vários chutes
-    while (wrong_answer)
+    for(tries = 1; tries <= tries_player; tries++)
     {
-        //Aumentando o número de tentativas que o usuário levou para acertar
-        tries++;
 
         //Comando para receber entrada = "cin >>"
         int guess;
@@ -49,6 +73,7 @@ int main (){
 
             //Fazendo o wrong_answer se tornar true para parar o laço
             wrong_answer = false;
+            break;
         }
         else if (higher)
         {
@@ -60,12 +85,23 @@ int main (){
         }
     }
     
+
+    
+    
     cout << "Fim de jogo!" << endl;
-    cout << "Voce levou um total de: " << tries << " tentativas" << endl;
-    //Precisão para imprimir casas decimais mesmo quando não haja
-    cout.precision(2);
-    //Deixando as vírgulas fixas em um local
-    cout << fixed;
-    cout << "Seu score final foi de: " << score << " pontos" << endl;
+
+    if (wrong_answer)
+    {
+        cout << "Voce perdeu o jogo! O numero secreto era: " << SECRET_NUMBER << endl;
+    }
+    else
+    {
+        cout << "Voce levou um total de: " << tries << " tentativas" << endl;
+        //Precisão para imprimir casas decimais mesmo quando não haja
+        cout.precision(2);
+        //Deixando as vírgulas fixas em um local
+        cout << fixed;
+        cout << "Seu score final foi de: " << score << " pontos" << endl;
+    }
     
 }
