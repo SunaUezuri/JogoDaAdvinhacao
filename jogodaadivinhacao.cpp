@@ -62,6 +62,10 @@ int main (){
     
     cout << "Fim de jogo!" << endl;
     cout << "Voce levou um total de: " << tries << " tentativas" << endl;
+    //Precisão para imprimir casas decimais mesmo quando não haja
+    cout.precision(2);
+    //Deixando as vírgulas fixas em um local
+    cout << fixed;
     cout << "Seu score final foi de: " << score << " pontos" << endl;
     
 }
