@@ -14,5 +14,25 @@ int main (){
     //Armazenando o número secreto
     int secret_number = 42;
 
-    cout <<"O numero secreto e " << secret_number << endl;
+
+    //Comando para receber entrada = "cin >>"
+    int guess;
+    cout << "Qual seu chute? ";
+    cin >> guess;
+    cout << "O valor do seu chute foi: " << guess << endl;
+
+    if (guess == secret_number) 
+    {
+        cout << "Parabens, voce acertou!" << endl;
+    }
+    else if (guess > secret_number)
+    {
+        cout << "Voce errou! O numero secreto e menor." << endl;
+    }
+    else
+    {
+        cout << "Voce errou! O numero secreto e maior." << endl;
+    }
+    
+    
 }
