@@ -11,8 +11,9 @@ int main (){
     cout << "* Bem-Vindos ao jogo da adivinhacao! *" << endl;
     cout << "**************************************" << endl;
 
-    //Armazenando o número secreto
-    int secret_number = 42;
+    //Armazenando o número secreto e declarando que ela é uma constante
+    //Variaveis constantes seguem uma regra de nomenclatura onde todos os caracteres são em CAPS Lock
+    const int SECRET_NUMBER = 42;
 
 
     //Comando para receber entrada = "cin >>"
@@ -21,11 +22,15 @@ int main (){
     cin >> guess;
     cout << "O valor do seu chute foi: " << guess << endl;
 
-    if (guess == secret_number) 
+    //Variável bool
+    bool guessed = guess == SECRET_NUMBER;
+    bool lower = guess < SECRET_NUMBER;
+
+    if (guessed) 
     {
-        cout << "Parabens, voce acertou!" << endl;
+        cout << "Parabens! voce acertou!" << endl;
     }
-    else if (guess > secret_number)
+    else if (lower)
     {
         cout << "Voce errou! O numero secreto e menor." << endl;
     }
