@@ -15,29 +15,45 @@ int main (){
     //Variaveis constantes seguem uma regra de nomenclatura onde todos os caracteres são em CAPS Lock
     const int SECRET_NUMBER = 42;
 
+    bool wrong_answer = true;
+    int tries = 0;
 
-    //Comando para receber entrada = "cin >>"
-    int guess;
-    cout << "Qual seu chute? ";
-    cin >> guess;
-    cout << "O valor do seu chute foi: " << guess << endl;
+    //Laço de repetição para permitir vários chutes
+    while (wrong_answer)
+    {
+        //Aumentando o número de tentativas que o usuário levou para acertar
+        tries++;
 
-    //Variável bool
-    bool guessed = guess == SECRET_NUMBER;
-    bool lower = guess < SECRET_NUMBER;
+        //Comando para receber entrada = "cin >>"
+        int guess;
+        cout << "Tentativa: " << tries << endl;
+        cout << "Qual seu chute? ";
+        cin >> guess;
+        cout << "O valor do seu chute foi: " << guess << endl;
 
-    if (guessed) 
-    {
-        cout << "Parabens! voce acertou!" << endl;
-    }
-    else if (lower)
-    {
-        cout << "Voce errou! O numero secreto e menor." << endl;
-    }
-    else
-    {
-        cout << "Voce errou! O numero secreto e maior." << endl;
+        //Variável bool
+        bool guessed = guess == SECRET_NUMBER;
+        bool higher = guess > SECRET_NUMBER;
+
+
+        if (guessed) 
+        {
+            cout << "Parabens! voce acertou!" << endl;
+
+            //Fazendo o wrong_answer se tornar true para parar o laço
+            wrong_answer = false;
+        }
+        else if (higher)
+        {
+            cout << "Voce errou! Seu chute foi maior que o numero secreto." << endl;
+        }
+        else
+        {
+            cout << "Voce errou! Seu chute foi menor que o numero secreto." << endl;
+        }
     }
     
+    cout << "Fim de jogo!" << endl;
+    cout << "Voce levou um total de: " << tries << " tentativas" << endl;
     
 }
