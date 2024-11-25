@@ -16,7 +16,11 @@ int main (){
     const int SECRET_NUMBER = 42;
 
     bool wrong_answer = true;
+    //Variável de tentativas
     int tries = 0;
+
+    //Varável representando os pontos que o player irá iniciar
+    double score = 1000.0;
 
     //Laço de repetição para permitir vários chutes
     while (wrong_answer)
@@ -35,6 +39,9 @@ int main (){
         bool guessed = guess == SECRET_NUMBER;
         bool higher = guess > SECRET_NUMBER;
 
+        //abs = devolve o valor positivo de um número
+        double lost_score = abs(guess - SECRET_NUMBER) / 2.0;
+        score = score - lost_score; 
 
         if (guessed) 
         {
@@ -55,5 +62,6 @@ int main (){
     
     cout << "Fim de jogo!" << endl;
     cout << "Voce levou um total de: " << tries << " tentativas" << endl;
+    cout << "Seu score final foi de: " << score << " pontos" << endl;
     
 }
